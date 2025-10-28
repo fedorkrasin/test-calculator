@@ -1,0 +1,16 @@
+{
+    "name": "MVP.Unity",
+    "rootNamespace": "",
+    "references": [
+        "GUID:02beb5b687cc443c9f1c8edc4c98d18c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

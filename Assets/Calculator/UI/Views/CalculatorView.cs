@@ -10,7 +10,7 @@ namespace Calculator.UI.Views
     public class CalculatorView : View, ICalculatorView
     {
         [SerializeField] private TMP_InputField _inputField;
-        [SerializeField] private TMP_Text _resultLabel;
+        [SerializeField] private TMP_Text _historyLabel;
         [SerializeField] private Button _calculateButton;
         
         public event Action<string> CalculateButtonClicked = delegate { };
@@ -25,9 +25,14 @@ namespace Calculator.UI.Views
             _calculateButton.onClick.RemoveListener(OnCalculateButtonClicked);
         }
         
-        public void SetResult(string result)
+        public void AppendResultToHistory(string result)
         {
-            _resultLabel.text = result;
+            _historyLabel.text = result + "\n" + _historyLabel.text;
+        }
+
+        public void SetHistory(string history)
+        {
+            _historyLabel.text = history;
         }
 
         private void OnCalculateButtonClicked()

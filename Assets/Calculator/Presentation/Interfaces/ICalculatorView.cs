@@ -5,7 +5,8 @@ namespace Calculator.Presentation.Interfaces
 {
     public interface ICalculatorView : IView
     {
-        void SetResult(string result);
+        void SetHistory(string history);
+        void AppendResultToHistory(string result);
         
         event Action<string> CalculateButtonClicked;
     }

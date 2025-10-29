@@ -1,4 +1,5 @@
 ﻿using Calculator.Application.Services;
+using Calculator.Data.Repositories;
 using Calculator.Domain.Models;
 using Calculator.ExpressionEvaluation;
 using Calculator.Presentation;
@@ -23,6 +24,7 @@ namespace Calculator.UI
             var validator = new SimpleAdditionValidator();
             var evaluator = new SimpleAdditionEvaluator();
 
+            var repository = new PlayerPrefsCalculatorRepository();
             var formatter = new ExpressionFormatter();
             
             _uiFactory = new UIFactory(_viewMap.ToDictionary(), _canvasTransform);
@@ -30,7 +32,7 @@ namespace Calculator.UI
             _uiFactory.RegisterPresenter<CalculatorView>(view =>
             {
                 var model = new CalculatorService(validator, evaluator);
-                return new CalculatorPresenter(view, model, formatter);
+                return new CalculatorPresenter(view, model, repository, formatter);
             });
             
             OpenView<CalculatorView>();

@@ -1,11 +1,17 @@
-﻿using MVP.Core.View;
+﻿using MVP.Core.Interfaces;
 using UnityEngine;
 
 namespace MVP.Unity
 {
     public abstract class View : MonoBehaviour, IView
     {
-        public abstract void Initialize();
-        public abstract void Dispose();
+        public virtual void Initialize()
+        {
+        }
+
+        public virtual void Dispose()
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,17 +1,20 @@
-﻿namespace Calculator.Domain.Models
+﻿using System;
+
+namespace Calculator.Domain.Models
 {
-    public readonly struct ExpressionResult
+    [Serializable]
+    public struct ExpressionResult
     {
-        public bool IsSuccessful { get; }
-        public int? Value { get; }
+        public bool IsSuccessful;
+        public int Value;
 
         public static ExpressionResult Success(int value) => new(true, value);
-        public static ExpressionResult Failure() => new(false, null);
+        public static ExpressionResult Failure() => new(false, 0);
 
-        private ExpressionResult(bool isSuccessful, int? value)
+        private ExpressionResult(bool isSuccessful, int value)
         {
             IsSuccessful = isSuccessful;
-            Value = isSuccessful ? value : null;
+            Value = isSuccessful ? value : 0;
         }
     }
 }

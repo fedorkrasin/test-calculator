@@ -2,6 +2,6 @@
 {
     public interface IExpressionFormatter
     {
-        string Format(Expression expression, ExpressionResult result);
+        string Format(ExpressionModel expression);
     }
 }

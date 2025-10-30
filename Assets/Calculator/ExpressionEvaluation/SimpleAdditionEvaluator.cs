@@ -6,9 +6,9 @@ namespace Calculator.ExpressionEvaluation
 {
     public class SimpleAdditionEvaluator : IExpressionEvaluator
     {
-        public int Evaluate(Expression expression)
+        public int Evaluate(ExpressionModel expression)
         {
-            return expression.Raw
+            return expression.Expression
                 .Split('+')
                 .Select(int.Parse)
                 .Sum();

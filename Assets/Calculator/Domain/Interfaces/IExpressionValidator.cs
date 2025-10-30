@@ -2,6 +2,6 @@
 {
     public interface IExpressionValidator
     {
-        bool IsValid(Expression expression);
+        bool IsValid(ExpressionModel expression);
     }
 }

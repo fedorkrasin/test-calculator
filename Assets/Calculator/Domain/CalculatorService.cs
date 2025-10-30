@@ -1,10 +1,9 @@
 ﻿using System;
 using Calculator.Domain.Models.Interfaces;
-using MVP.Core.Model;
 
 namespace Calculator.Domain.Models
 {
-    public class CalculatorService : IModel
+    public class CalculatorService
     {
         private readonly IExpressionValidator _validator;
         private readonly IExpressionEvaluator _evaluator;
@@ -17,13 +16,13 @@ namespace Calculator.Domain.Models
             _evaluator = evaluator ?? throw new ArgumentNullException(nameof(evaluator));
         }
 
-        public ExpressionResult Calculate(Expression expression)
+        public ExpressionModel Calculate(ExpressionModel expression)
         {
-            var evaluationResult = _validator.IsValid(expression)
+            expression.SetResult(_validator.IsValid(expression)
                 ? ExpressionResult.Success(_evaluator.Evaluate(expression))
-                : ExpressionResult.Failure();
+                : ExpressionResult.Failure());
 
-            return evaluationResult;
+            return expression;
         }
     }
 }

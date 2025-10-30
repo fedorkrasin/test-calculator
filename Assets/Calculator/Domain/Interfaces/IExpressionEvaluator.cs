@@ -2,6 +2,6 @@
 {
     public interface IExpressionEvaluator
     {
-        int Evaluate(Expression expression);
+        int Evaluate(ExpressionModel expression);
     }
 }

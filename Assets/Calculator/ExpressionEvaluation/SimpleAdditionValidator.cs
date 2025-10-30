@@ -8,9 +8,9 @@ namespace Calculator.ExpressionEvaluation
     {
         private static readonly Regex ValidExpressionRegex = new(@"^\d+(\+\d+)*$", RegexOptions.Compiled);
 
-        public bool IsValid(Expression expression) // TODO: 123=123 is not valid
+        public bool IsValid(ExpressionModel expression)
         {
-            return ValidExpressionRegex.IsMatch(expression.Raw);
+            return ValidExpressionRegex.IsMatch(expression.Expression);
         }
     }
 }
